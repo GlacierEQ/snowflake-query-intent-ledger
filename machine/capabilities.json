@@ -1,1 +1,14 @@
-{"capabilities": ["hyper-scaling"]}
+{
+  "schema": "glaciereq.repo-capabilities.v1",
+  "repository": "GlacierEQ/snowflake-query-intent-ledger",
+  "family": "purpose_bound_query_reuse_governance",
+  "capabilities": [
+    "one_shot_query_intent_identity",
+    "purpose_policy_fingerprint",
+    "column_subset_reuse_guard",
+    "purpose_mismatch_reuse_refusal",
+    "chained_query_use_receipt",
+    "query_intent_fingerprint_export"
+  ],
+  "truth_boundary": "Declared query-purpose/downstream-use governance only. It does not execute SQL, verify query results, authenticate external actors, fence natural-language claims, enforce Snowflake RLS, or claim Snowflake adoption."
+}
