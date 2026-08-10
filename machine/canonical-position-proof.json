@@ -1,0 +1,30 @@
+{
+  "schema": "glaciereq.canonical-position-proof.v1",
+  "repository": "GlacierEQ/snowflake-query-intent-ledger",
+  "gate": "CANONICAL_POSITION_RESOLVED",
+  "result": "PASS",
+  "tested_source_sha": "f0f8f47273300d619467ecaeb56a39ee4b92d7db",
+  "workflow": {
+    "provider": "github-actions",
+    "run_id": 31393133182,
+    "conclusion": "success"
+  },
+  "observed_scope": [
+    "one-shot query intent identity and rebinding refusal",
+    "idempotent exact re-registration",
+    "malformed intent/use refusal",
+    "column subset and purpose mismatch guards",
+    "purpose-policy fingerprint binding",
+    "chained registration/use event receipts",
+    "SQL fixture and canonical role boundaries"
+  ],
+  "canonical_role": "CANONICAL_SPECIALIST:purpose_bound_query_reuse_governance",
+  "limitations": [
+    "no SQL execution or result verification",
+    "no external actor authentication or Snowflake RLS enforcement",
+    "no natural-language claim proof",
+    "no exercised integration with Cortex claim fence",
+    "no Snowflake affiliation or adoption claim"
+  ],
+  "receipt_commit_policy": "Final receipt-inclusive PR-head CI must pass before merge."
+}
