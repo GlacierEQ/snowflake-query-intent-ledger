@@ -1,0 +1,58 @@
+{
+  "schema": "glaciereq.repo-canonical-position.v1",
+  "repository": "GlacierEQ/snowflake-query-intent-ledger",
+  "position_state": "RESOLVED",
+  "role": "CANONICAL_SPECIALIST",
+  "company_target": "Snowflake",
+  "canonical_identity": "query-intent-ledger",
+  "owns": "purpose_bound_query_reuse_governance",
+  "unique_value": [
+    "query IDs are one-shot identities bound to purpose, unique columns and SQL digest",
+    "attempted query-ID rebinding to a different intent fails closed while exact re-registration is idempotent",
+    "purpose-to-downstream-use policy has a deterministic fingerprint",
+    "column escalation and purpose mismatch refuse before downstream reuse is allowed",
+    "registration/use events bind query-intent fingerprint, policy fingerprint, verdict, reason and previous-event fingerprint",
+    "ledger fingerprint binds current immutable intents, policy identity and chained event history"
+  ],
+  "does_not_own": [
+    "SQL execution or query-result verification",
+    "natural-language claim citation fencing",
+    "semantic entailment between query result and claim",
+    "external actor authentication",
+    "Snowflake RLS or database-policy enforcement"
+  ],
+  "capability_contribution": {
+    "family": "purpose_bound_query_reuse_governance",
+    "extractable_mechanisms": [
+      "one_shot_query_intent_identity",
+      "purpose_policy_fingerprint",
+      "column_subset_reuse_guard",
+      "purpose_mismatch_reuse_refusal",
+      "chained_query_use_receipt",
+      "query_intent_fingerprint_export"
+    ],
+    "ownership": "Canonical Snowflake-lens specialist for immutable query intent registration and purpose-bound downstream reuse governance."
+  },
+  "relationships": [
+    {
+      "repository": "GlacierEQ/snowflake-cortex-claim-bound",
+      "relation": "COMPOSES_WITH",
+      "integration_exercised": false,
+      "boundary": "claim citation fencing is separate from query-purpose/downstream-use authorization"
+    }
+  ],
+  "next_evolution": "Persist immutable intent/event receipts in a durable store, bind authenticated actor/authority and result identity, then expose full intent fingerprints to the claim fence through executable receipt-level integration.",
+  "evidence_refs": [
+    "src/intent_ledger.py",
+    "tests/test_intent_ledger.py",
+    "sql/intent_ledger.sql",
+    "ISSUE_CONTRACT.md",
+    "machine/target-contract.json"
+  ],
+  "nonclaims": [
+    "no Snowflake affiliation",
+    "no SQL execution or query-result verification",
+    "no external identity authentication or Snowflake RLS enforcement",
+    "no exercised integration with snowflake-cortex-claim-bound"
+  ]
+}

@@ -2,21 +2,65 @@
   "schema": "glaciereq.repo-target-contract.v1",
   "identity": {
     "repository_id": "GlacierEQ/snowflake-query-intent-ledger",
-    "family": "elite-estate"
+    "family": "purpose_bound_query_reuse_governance"
   },
   "current": {
-    "state": "PROMOTED",
+    "state": "EVOLVING",
     "implemented": true,
     "tested": true,
-    "deployed": false
+    "deployed": false,
+    "canonical_position_pending_exact_head_proof": false
   },
-  "nonclaims": [
-    "no employer affiliation",
-    "no production deployment without receipt"
+  "target": {
+    "purpose": "Make query intent immutable and gate declared downstream reuse against the exact purpose, column boundary and accepted purpose-to-use policy.",
+    "central_bottleneck": "If a query ID can be rebound or downstream reuse is not tied to the exact intent and policy version, earlier audit decisions can become meaningless even though the identifier stays unchanged.",
+    "success": [
+      "Query IDs cannot be rebound to a different purpose/column/SQL intent.",
+      "Exact re-registration is idempotent.",
+      "Malformed intent and use dimensions fail closed.",
+      "Downstream columns must be a subset of registered query columns.",
+      "Downstream use type must be permitted by the intent purpose policy.",
+      "Policy, intent and chained event identities are receipt-bound.",
+      "No SQL execution or external policy enforcement is implied."
+    ]
+  },
+  "invariants": [
+    "one-shot query ID identity",
+    "non-empty recognized purpose",
+    "non-empty unique query columns",
+    "non-empty SQL digest",
+    "purpose policy identity is deterministic",
+    "reuse columns cannot exceed registered query columns",
+    "reuse purpose mismatch refuses",
+    "event history is hash chained"
   ],
   "donor_plan": {
-    "mode": "none",
-    "donors": []
+    "status": "RESOLVED",
+    "strategy": "INDEPENDENT_MECHANISM_PRESERVED",
+    "donors": [
+      {
+        "repository": "GlacierEQ/snowflake-cortex-claim-bound",
+        "reuse_mode": "REFERENCE_ARCHITECTURE",
+        "boundary": "claim fence may later consume immutable query-intent fingerprints; no exercised integration exists yet"
+      }
+    ]
   },
-  "frozen_at": "2026-08-10T04:12Z"
+  "promotion": {
+    "required_tests": ["python-unit", "sql-fixture", "canonical-position"],
+    "require_exact_source_sha": true,
+    "require_receipt": true,
+    "require_nonclaims": true,
+    "next_gate": "EVOLUTION_CURSOR_DEFINED"
+  },
+  "evolution": {
+    "cursor": "next:durable_intent_event_store_then_authenticated_actor_and_result_identity",
+    "composition_gate": "Do not expose query-intent fingerprints to the claim fence as integrated evidence until receipt-level composition is executable and reproduced."
+  },
+  "nonclaims": [
+    "no Snowflake affiliation",
+    "not a production Snowflake governance service",
+    "no SQL execution or query-result verification",
+    "no external actor authentication or Snowflake RLS enforcement",
+    "no exercised integration with snowflake-cortex-claim-bound"
+  ]
 }
