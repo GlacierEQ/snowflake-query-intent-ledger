@@ -14,6 +14,7 @@ def load(path: str):
 CANONICAL = load("machine/canonical-position.json")
 CAPABILITIES = load("machine/capabilities.json")
 TARGET = load("machine/target-contract.json")
+PROOF = load("machine/canonical-position-proof.json")
 
 
 class CanonicalPositionContractTests(unittest.TestCase):
@@ -35,10 +36,12 @@ class CanonicalPositionContractTests(unittest.TestCase):
         self.assertIn("purpose_policy_fingerprint", capabilities)
         self.assertIn("chained_query_use_receipt", capabilities)
 
-    def test_target_waits_for_exact_head_proof(self):
-        self.assertEqual(TARGET["current"]["state"], "PROMOTED")
-        self.assertTrue(TARGET["current"]["canonical_position_pending_exact_head_proof"])
-        self.assertEqual(TARGET["promotion"]["next_gate"], "CANONICAL_POSITION_RESOLVED")
+    def test_target_reflects_earned_canonical_position(self):
+        self.assertEqual(TARGET["current"]["state"], "EVOLVING")
+        self.assertFalse(TARGET["current"]["canonical_position_pending_exact_head_proof"])
+        self.assertEqual(TARGET["promotion"]["next_gate"], "EVOLUTION_CURSOR_DEFINED")
+        self.assertEqual(PROOF["result"], "PASS")
+        self.assertEqual(PROOF["tested_source_sha"], "f0f8f47273300d619467ecaeb56a39ee4b92d7db")
 
     def test_truth_boundary_excludes_execution_and_external_policy_claims(self):
         boundary = CAPABILITIES["truth_boundary"]
