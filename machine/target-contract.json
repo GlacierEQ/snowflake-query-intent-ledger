@@ -5,11 +5,11 @@
     "family": "purpose_bound_query_reuse_governance"
   },
   "current": {
-    "state": "PROMOTED",
+    "state": "EVOLVING",
     "implemented": true,
     "tested": true,
     "deployed": false,
-    "canonical_position_pending_exact_head_proof": true
+    "canonical_position_pending_exact_head_proof": false
   },
   "target": {
     "purpose": "Make query intent immutable and gate declared downstream reuse against the exact purpose, column boundary and accepted purpose-to-use policy.",
@@ -50,7 +50,11 @@
     "require_exact_source_sha": true,
     "require_receipt": true,
     "require_nonclaims": true,
-    "next_gate": "CANONICAL_POSITION_RESOLVED"
+    "next_gate": "EVOLUTION_CURSOR_DEFINED"
+  },
+  "evolution": {
+    "cursor": "next:durable_intent_event_store_then_authenticated_actor_and_result_identity",
+    "composition_gate": "Do not expose query-intent fingerprints to the claim fence as integrated evidence until receipt-level composition is executable and reproduced."
   },
   "nonclaims": [
     "no Snowflake affiliation",
