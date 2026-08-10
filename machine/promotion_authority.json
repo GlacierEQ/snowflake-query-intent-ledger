@@ -1,0 +1,11 @@
+{
+  "schema": "glaciereq.promotion-authority-grant.v1",
+  "repository": "GlacierEQ/snowflake-query-intent-ledger",
+  "source_sha": "9de8037a694562f84c4c711b8de99a8f2e9693f6f1e34341e04626cfceedd0eb",
+  "proof_receipt_digest": "f5f99657b7190a459e7c27e816bbf80ddc70f745368d8c179f3a06550b1124b8",
+  "not_after": 1788927149.234226,
+  "mac": "a575d0ddf2d3566d688866859c6e043357f76d94724c57de967c886e15e87fe1",
+  "issuer": "local_operator_promotion_authority",
+  "verified": true,
+  "secret_ref": "src/promotion_authority.py::LOCAL_OPERATOR_SECRET"
+}

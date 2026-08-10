@@ -1,0 +1,24 @@
+{
+  "schema": "glaciereq.operability-receipt.v1",
+  "repository": "GlacierEQ/snowflake-query-intent-ledger",
+  "at": "2026-08-10T04:12Z",
+  "source_sha": "9de8037a694562f84c4c711b8de99a8f2e9693f6f1e34341e04626cfceedd0eb",
+  "entry": "scripts/operate.py",
+  "primary_output": {
+    "module": "intent_ledger",
+    "ok": true,
+    "repository": "GlacierEQ/snowflake-query-intent-ledger",
+    "smoke": {
+      "args": [],
+      "content_checked": true,
+      "invoked": true,
+      "kind": "class",
+      "method": "fingerprint",
+      "module_local": true,
+      "name": "IntentLedger",
+      "result": "077dcadabd6ee1e7c20304029dc657a299f4ca8737dd81879986bd9b272ab4a6"
+    }
+  },
+  "dual_run_ok": true,
+  "result": "PASS"
+}
