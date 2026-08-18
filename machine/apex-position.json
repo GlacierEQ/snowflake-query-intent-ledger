@@ -1,10 +1,10 @@
 {
-  "schema": "glaciereq.repo-canonical-position.v1",
+  "schema": "glaciereq.repo-apex-position.v1",
   "repository": "GlacierEQ/snowflake-query-intent-ledger",
   "position_state": "RESOLVED",
-  "role": "CANONICAL_SPECIALIST",
+  "role": "APEX_SPECIALIST",
   "company_target": "Snowflake",
-  "canonical_identity": "query-intent-ledger",
+  "apex_identity": "query-intent-ledger",
   "owns": "purpose_bound_query_reuse_governance",
   "unique_value": [
     "query IDs are one-shot identities bound to purpose, unique columns and SQL digest",
@@ -31,7 +31,7 @@
       "chained_query_use_receipt",
       "query_intent_fingerprint_export"
     ],
-    "ownership": "Canonical Snowflake-lens specialist for immutable query intent registration and purpose-bound downstream reuse governance."
+    "ownership": "APEX Snowflake-lens specialist for immutable query intent registration and purpose-bound downstream reuse governance."
   },
   "relationships": [
     {

@@ -9,7 +9,7 @@
     "implemented": true,
     "tested": true,
     "deployed": false,
-    "canonical_position_pending_exact_head_proof": false
+    "apex_position_pending_exact_head_proof": false
   },
   "target": {
     "purpose": "Make query intent immutable and gate declared downstream reuse against the exact purpose, column boundary and accepted purpose-to-use policy.",
@@ -46,7 +46,7 @@
     ]
   },
   "promotion": {
-    "required_tests": ["python-unit", "sql-fixture", "canonical-position"],
+    "required_tests": ["python-unit", "sql-fixture", "apex-position"],
     "require_exact_source_sha": true,
     "require_receipt": true,
     "require_nonclaims": true,

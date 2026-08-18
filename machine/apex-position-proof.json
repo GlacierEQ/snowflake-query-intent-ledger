@@ -1,7 +1,7 @@
 {
-  "schema": "glaciereq.canonical-position-proof.v1",
+  "schema": "glaciereq.apex-position-proof.v1",
   "repository": "GlacierEQ/snowflake-query-intent-ledger",
-  "gate": "CANONICAL_POSITION_RESOLVED",
+  "gate": "APEX_POSITION_RESOLVED",
   "result": "PASS",
   "tested_source_sha": "f0f8f47273300d619467ecaeb56a39ee4b92d7db",
   "workflow": {
@@ -16,9 +16,9 @@
     "column subset and purpose mismatch guards",
     "purpose-policy fingerprint binding",
     "chained registration/use event receipts",
-    "SQL fixture and canonical role boundaries"
+    "SQL fixture and apex role boundaries"
   ],
-  "canonical_role": "CANONICAL_SPECIALIST:purpose_bound_query_reuse_governance",
+  "apex_role": "APEX_SPECIALIST:purpose_bound_query_reuse_governance",
   "limitations": [
     "no SQL execution or result verification",
     "no external actor authentication or Snowflake RLS enforcement",
